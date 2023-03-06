@@ -9,17 +9,25 @@
     <link rel="stylesheet" href="/stylesheets/application.css">
   </head>
 
-  <body>
-    <div>
-      <%= flash["notice"] %>
-    </div>
-    <div>
-      <a href="/">Home</a>
+
+    <body>
+    <p>
+    <!-- if user logged in -->
+    <% if @current_user %>
+    <!--move it to application_controller.rb --  <% @current_user = User.find_by({"id"=>session["user_id"]})%> -->
+      Hey, <%= @current_user["username"] %>
       <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
+    <!-- else -->
+    <% else %>
+      <a href="/login">Login</a> | <a href="/users/new">Signup</a>
+    <% end %>
+    </p>
+
+    <p>
+      <%= flash["notice"] %>
+    </p>
 
     <%= yield %>
   </body>
+
 </html>
