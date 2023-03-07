@@ -17,9 +17,11 @@
     <% if @current_user %>
     <!--move it to application_controller.rb --  <% @current_user = User.find_by({"id"=>session["user_id"]})%> -->
       Hey, <%= @current_user["username"] %>
+      <a href="/places">Home</a>
       <a href="/logout">Logout</a>
     <!-- else -->
     <% else %>
+      <a href="/places">Home</a>
       <a href="/login">Login</a> | <a href="/users/new">Signup</a>
     <% end %>
     </p>
