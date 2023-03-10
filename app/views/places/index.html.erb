@@ -1,11 +1,28 @@
-<h1>Places</h1>
+<div class="container">
 
-<ul>
-  <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
-  <% end %>
-</ul>
+  <div class="row">
+  <h1 style="margin-top: 50px;">Places</h1>
+  </div>
 
-<p>
-  <a href="/places/new">New place</a>
-</p>
+<br>
+
+  <div class="row" style="padding: 20px;">
+    <p>
+    <a href="/places/new" class="btn btn-outline-primary">New place</a>
+    </p>
+
+  </div>
+
+<br>
+
+  <div class="row">
+    <div class="col">
+      <ul>
+        <% for place in @places %>
+        <li><a href="/places/<%= place["id"] %>" class="btn btn-link"><%= place["name"] %></a></li>
+        <% end %>
+      </ul>
+      </div>
+  </div>
+
+</div>
